@@ -200,7 +200,7 @@ static const CGFloat kLabelsFontSize = 12.0f;
     CGSize maxLabelTextSize = [self.maxLabel.string sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kLabelsFontSize]}];
 
     float newLeftMostXInMaxLabel = newMaxLabelCenter.x - maxLabelTextSize.width/2;
-    float newRightMostXInMinLabel = newMinLabelCenter.x + minLabelTextSize.width/2;
+    float newRightMostXInMinLabel = (self.disableRange) ? 0 : newMinLabelCenter.x + minLabelTextSize.width/2;
     float newSpacingBetweenTextLabels = newLeftMostXInMaxLabel - newRightMostXInMinLabel;
 
     if (self.disableRange == YES || newSpacingBetweenTextLabels > minSpacingBetweenLabels) {
